@@ -1,0 +1,9 @@
+<button (click)="seeAllPokemons()">VOIR</button>
+<div class="all-cards-container">
+  @for (pokemon of allPokemons; track $index) {
+  <div>
+    <img [src]="pokemon.images.small" />
+  </div>
+
+  }
+</div>

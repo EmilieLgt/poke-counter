@@ -1,0 +1,85 @@
+<div class="filter-container">
+  <form>
+    <fieldset>
+      <p>1. Chose a meal</p>
+      <label id="breakfast">Breakfast</label
+      ><input
+        type="radio"
+        id="breakfast"
+        name="meal"
+        value="Breakfast"
+        [(ngModel)]="mealChosen"
+      />
+      <label id="snack">Snack</label
+      ><input
+        type="radio"
+        id="snack"
+        name="meal"
+        value="Snack"
+        [(ngModel)]="mealChosen"
+      />
+      <label id="lunch">Lunch or Diner</label
+      ><input
+        type="radio"
+        id="lunch"
+        name="meal"
+        value="Lunch"
+        [(ngModel)]="mealChosen"
+      />
+    </fieldset>
+    <fieldset>
+      <p>2. Add other restrictions</p>
+      <label id="Vegetarian">Vegetarian</label
+      ><input
+        type="radio"
+        id="Vegetarian"
+        name="health"
+        value="&health=vegetarian"
+        [(ngModel)]="healthChoice"
+      />
+      <label id="Vegan">Vegan</label
+      ><input
+        type="radio"
+        id="Vegan"
+        name="health"
+        value="&health=vegan"
+        [(ngModel)]="healthChoice"
+      />
+      <label id="pork-free">Pork-free</label
+      ><input
+        type="radio"
+        id="pork-free"
+        name="health"
+        value="&health=pork-free"
+        [(ngModel)]="healthChoice"
+      />
+      <label id="fodmap-free">Fodmap-free</label
+      ><input
+        type="radio"
+        id="fodmap-free"
+        name="health"
+        value="&health=fodmap-free"
+        [(ngModel)]="healthChoice"
+      />
+    </fieldset>
+  </form>
+  <button (click)="callRecipe()">Search</button>
+</div>
+
+<div class="recipes-container">
+  @for (recipe of recipes; track $index) {
+  <div class="recipe-card">
+    <h3>{{ recipe.recipe.label }}</h3>
+    <img class="recipe-img"[src]="recipe.recipe.image" />
+    <ul>
+      @for (ingredient of recipe.recipe.ingredientLines; track $index) {
+      <li>• {{ ingredient }}</li>
+      }
+    </ul>
+    <a href="{{ recipe.recipe.url }}" target="_blank"
+      >Visit
+      <img class="svg" src="https://www.svgrepo.com/show/510198/sign-out.svg"
+    /></a>
+  </div>
+  }
+</div>

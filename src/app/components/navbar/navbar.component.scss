@@ -1,0 +1,26 @@
+$purple: #e2d2fe;
+$blue: #bae5f4;
+$lightpink: #fccdcd;
+$black: #080826;
+
+ul {
+  background-color: $purple;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  li {
+    background-color: $purple;
+    display: flex;
+    gap: 0.5em;
+    padding: 1em;
+    border-radius: 15px;
+    img {
+      width: 1em;
+    }
+  }
+  li:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+}

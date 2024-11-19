@@ -1,0 +1,28 @@
+<div class="pokemon-container">
+  @for (pokemon of pokemons; track pokemon.id) {
+  <div class="pokemon-card">
+    <h3>{{ pokemon.name }}</h3>
+    <img [src]="pokemon.image" />
+    <div class="pokemon-count">
+      <h4>Common</h4>
+      <div>
+        <button (click)="addCommon(pokemon.id)">+</button>
+        <button (click)="removeCommon(pokemon.id)">-</button>
+      </div>
+      <input [(ngModel)]="pokemon.numberCommon" />
+    </div>
+    <div class="pokemon-count">
+      <h4>Rare</h4>
+      <div>
+        <button (click)="addRare(pokemon.id)">+</button>
+        <button (click)="removeRare(pokemon.id)">-</button>
+      </div>
+      <input [(ngModel)]="pokemon.numberRare" />
+    </div>
+    <div class="total-container">
+      <p>Total</p>
+      <div class="total">{{ getTotal(pokemon) }}</div>
+    </div>
+  </div>
+  }
+</div>
